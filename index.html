@@ -29,6 +29,7 @@
         </div>
     </div>
 </div>
+
 <!-- -----------about---------- -->
 <div id="about">
     <div class="container">
@@ -109,7 +110,7 @@
         <h1 class="sub-title">Galerie</h1>
         <div class="work-list">
             <div class="work">
-                <img src="küche.jpg">
+                <img src="küche.jpg">
                 <div class="layer">
                     <h3>Moderne Einbau Küche</h3>
                     <p> Kühlschrank <p>
@@ -296,5 +297,38 @@
   </div>
 </div>
 <script src="script.js"></script>
+<!-- Cookie Hinweis -->
+<div class="cookie-warning" id="cookie-popup">
+    <h3 class="cookie-title">We use cookies 🍪</h3>
+    <div class="cookie-text">
+      We use cookies to ensure you have the best browsing experience on our website. By using our site, you acknowledge that you have read and understood our
+      <a href="#">Cookie Policy</a> & <a href="#">Privacy Policy</a>.
+    </div>
+    <div class="cookie-btn-wrapper">
+      <button class="cookie-btn" onclick="acceptCookies()">Accept</button>
+      <button class="cookie-btn" onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+  <script>
+    // Cookie-Hinweis logik
+    function acceptCookies() {
+      document.getElementById('cookie-popup').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    }
+  
+    function declineCookies() {
+      document.getElementById('cookie-popup').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'false');
+    }
+  
+    window.onload = function () {
+      if (localStorage.getItem('cookiesAccepted') === null) {
+        document.getElementById('cookie-popup').style.display = 'block';
+      } else {
+        document.getElementById('cookie-popup').style.display = 'none';
+      }
+    };
+  </script>
+  
 </body>
 </html>
